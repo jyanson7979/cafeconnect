@@ -1,0 +1,190 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black; 
+    color: #fff; 
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    padding: 1rem 2rem;
+    align-items: center;
+}
+
+.navbar-logo img {
+    width: 120px; 
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    color: whitesmoke; 
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: whitesmoke; 
+}
+
+
+.menu-section {
+    padding: 2rem 2rem;
+    text-align: center;
+    background-color: black; 
+    margin-top: 50px;
+}
+
+.menu-section h2 {
+    font-size: 32px;
+    color: #f0c040; 
+    margin-bottom: 20px;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    justify-items: center;
+    margin-top: 30px;
+}
+
+.menu-item {
+    background-color: black;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.menu-item h3 {
+    font-size: 22px;
+    color: whitesmoke;
+    margin: 10px 0;
+}
+
+.menu-item p {
+    color: #ddd;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+
+}
+
+#about-us {
+    padding: 2rem;
+    text-align: left;
+    background-color: black;
+}
+
+#about-us h1 {
+    font-size: 36px;
+    color: #f0c040; 
+}
+
+#about-us p {
+    padding-left: 20px;
+    font-size: 18px;
+    color: #ddd; 
+}
+
+
+.contact-section {
+    padding: 2rem;
+    background-color: black;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+    color: #f0c040;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 18px;
+    color: #ddd;
+}
+
+.contact-section a {
+    color: #f0c040; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-section a:hover {
+    color: #ffd700; 
+}
+
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 14px;
+    color: #ddd;
+}
+
+
+@media (max-width: 768px) {
+    .menu-items {
+        grid-template-columns: 1fr 1fr; 
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .menu-item {
+        padding: 15px;
+    }
+
+    .menu-item h3 {
+        font-size: 20px;
+    }
+
+    .menu-item p {
+        font-size: 14px;
+    }
+}

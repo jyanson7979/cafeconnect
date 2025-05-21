@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>But First, Coffee - Valencia City, Bukidnon Branch</title>
+  <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+  <header class="header">
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Home Page</a></li>
+        <li><a href="Menu&Contacts.html">Menu & Contacts</a></li>
+        <li><a href="Notifications.html">Notifications</a></li>
+        <li><a href="HowToPay.html">How To Pay</a></li>
+      </ul>
+    </nav>
+  </header>
+
+     <div class="hero">
+    <div class="overlay"></div>
+    <div class="hero-images">
+      <img src="https://scontent.fdvo1-1.fna.fbcdn.net/v/t39.30808-6/499233606_1171656444976403_1726102369382744953_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFRX1gAPLRYDJSvOv3tFfXwdsBgqC3Nxap2wGCoLc3Fqil30y-04ak-tbXrGlU_1dwOuyDfgIJ5tHCpfkDz574z&_nc_ohc=X07kISTUBFoQ7kNvwEqmSD7&_nc_oc=AdkB8OjX6IRVVl81aSVvFLPoTYEIbHs9y5Y_vSjMhcyHvMSv1yW0SZczc0aWBDQG-Tk&_nc_zt=23&_nc_ht=scontent.fdvo1-1.fna&_nc_gid=4OUF8RLwur3cB8Nh-vfcFQ&oh=00_AfI1N0digaK40iv6l-uZ1tAB1uYAniQjAY6Sl_2yEb4v9g&oe=683338CA" alt="bfc" class="hero-img active">
+      <img src="https://scontent.fdvo1-2.fna.fbcdn.net/v/t39.30808-6/481962906_122138543744606108_7990962396519704666_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGLZK9HmBy2ZclKMLxdcxj8lLRoHaLMtSWUtGgdosy1JYWdhguykdTUfg2g_xBCgy9xUVnfyAFVtvHwAaPtHLZP&_nc_ohc=aVmAhZJCp2sQ7kNvwErQQn6&_nc_oc=Adk0aSkTUpX-PJnmIusthE-6xLpY4r9NNOE4vk7l5PFVrf5wb3XgGBf68906lExrFNk&_nc_zt=23&_nc_ht=scontent.fdvo1-2.fna&_nc_gid=_IfHJMKs_uWMwyG_KXT3Cg&oh=00_AfJx0tprmpGnzPk_9-j_JnC4B3ITWEScLoulh1kq0tDcRw&oe=68335866" alt="bfc" class="hero-img">
+      <img src="https://scontent.fdvo1-2.fna.fbcdn.net/v/t39.30808-6/481767426_10236610197975356_468321124957014884_n.jpg?stp=dst-jpg_p526x395_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHT1ZwN7QZZAAur609RNHkODyXo4wUdavgPJejjBR1q-HRwjC7Ih-E-u-uN0mRLv5w4M37O14mQvdNhVxiZhRVP&_nc_ohc=7Y4vyjBDhRsQ7kNvwHyf8bI&_nc_oc=AdmKFVErC0VA4wFPK6iVfRyXYgknlfHM-DzCO0aW2JlpzwB-0TuJUVg8xKTTo0qzWB0&_nc_zt=23&_nc_ht=scontent.fdvo1-2.fna&_nc_gid=9O413nkyAUQ2jGU3g3w9LQ&oh=00_AfJwq2HQvG9AKS488UWV9h1FV1zpIPHxAYc5QyGMZGnRoA&oe=683335BC" alt="bfc" class="hero-img">
+      
+    </div>
+    <div class="hero-text">
+      <p>YOUR GREATER START.</p>
+      <span class="tagline">Sayre Highway, Hagkol Valencia City, Bukidnon, 
+                              beside Jetti Fuel.</span>
+    </div>
+  </div>
+</body>
+<script>
+
+  let images = document.querySelectorAll(".hero-img");
+  let current = 0;
+  setInterval(() => {
+    images[current].classList.remove("active");
+    current = (current + 1) % images.length;
+    images[current].classList.add("active");
+  }, 5000);
+</script>
+</html>

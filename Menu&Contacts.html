@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>But First, Coffee - Valencia City, Bukidnon Branch</title>
+  <link rel="stylesheet" href="Menu&Contacts.css">
+  <style>
+    .menu-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .menu-item {
+      width: 200px;
+      text-align: center;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: auto;
+    }
+
+    #cart {
+      border-top: 2px solid #000;
+      margin-top: 30px;
+      padding-top: 20px;
+    }
+
+    #receipt {
+      margin-top: 20px;
+      background-color: #f8f8f8;
+      padding: 15px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Home Page</a></li>
+        <li><a href="Menu&Contacts.html">Menu & Contacts</a></li>
+        <li><a href="Notifications.html">Notifications</a></li>
+        <li><a href="HowToPay.html">How To Pay</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <br><br><br>
+  <p style="text-align: center; font-size: 20px;">Because good coffee doesn't have to be expensive. We are, BUT FIRST, COFFEE.</p>
+
+  <section id="menu" class="menu-section">
+    <h2 class="section-title">Café et Patisseries Carte</h2>
+    <div class="menu-items" id="menuItems">
+ 
+    </div>
+  </section>
+
+  <section id="cart" class="cart-section">
+    <h2>🧾 Order Summary</h2>
+    <div id="receipt"></div>
+    <button onclick="printReceipt()">Print Receipt</button>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2 class="section-title">Contact Us</h2>
+    <address>
+      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/ButFirstCoffee.ValenciaBukidnon"
+          target="_blank">But First, Coffee - Valencia, Bukidnon</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+639543355366">+63 9543355366</a></p>
+    </address>
+  </section>
+
+  <footer>
+    <p style="font-size: 18px;">&copy; 2025 But First, Coffee. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const menuData = [
+      { name: "Coffee", price: 99, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTWdaY7Fys8agu99_X8TD_9H0xgKAEBtMey1JWQc_kJsV6_EMBmxiRQQEeByUCOply_9E&usqp=CAU" },
+      { name: "Croissants", price: 85, img: "https://assets.tmecosys.cn/image/upload/t_web767x639/img/recipe/ras/Assets/090583d58388048bb29f60626f704c8e/Derivates/8ca882703d8350ae1fd21616ac930be0c4d7e494.jpg" },
+      { name: "Choco Moist", price: 165, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUcRWD5O8zBQfgmxNC-HAudFhJP6aBpp0g1w&s" },
+      { name: "Buttery Biscoff", price: 80, img: "https://parsleyandicing.com/wp-content/uploads/2022/03/biscoff-chocolate-cookies-1-of-1-1-500x375.jpg" },
+      { name: "Pecan Choco Lava", price: 80, img: "https://www.billyparisi.com/wp-content/uploads/2022/02/lava-cake-1.jpg" },
+      { name: "Choco Walnuts", price: 80, img: "https://thisdelicioushouse.com/wp-content/uploads/2023/09/Chocolate-Walnut-Cookies-16.jpg" },
+      { name: "Campfire Cookies", price: 80, img: "https://glorifiedhobby.com/wp-content/uploads/2015/06/photo-11-1024x782.jpg" },
+      { name: "Milk and Cheese Cupcake", price: 55, img: "https://i.ytimg.com/vi/glQT8Pw55IU/maxresdefault.jpg" },
+      { name: "Muffins", price: 95, img: "https://sarasellos.com/wp-content/uploads/2024/05/Muffins-de-Chispas-de-Chocolate4.jpg" }
+    ];
+
+    let cart = [];
+
+    const menuContainer = document.getElementById("menuItems");
+    const receiptContainer = document.getElementById("receipt");
+
+    menuData.forEach((item, index) => {
+      const itemDiv = document.createElement("div");
+      itemDiv.className = "menu-item";
+      itemDiv.innerHTML = `
+        <img src="${item.img}" alt="${item.name}">
+        <h4>${item.name}</h4>
+        <p>₱${item.price}</p>
+        <button onclick="addToCart(${index})">Add to Order</button>
+      `;
+      menuContainer.appendChild(itemDiv);
+    });
+
+    function addToCart(index) {
+  const selectedItem = menuData[index];
+  cart.push(selectedItem);
+  updateReceipt();
+  showPopupNotification(`${selectedItem.name} added to order!`);
+}
+
+    function updateReceipt() {
+      let receiptHTML = "<ul>";
+      let total = 0;
+      cart.forEach((item, idx) => {
+        total += item.price;
+        receiptHTML += `<li>${item.name} - ₱${item.price}</li>`;
+      });
+      receiptHTML += `</ul><strong>Total: ₱${total}</strong>`;
+      receiptContainer.innerHTML = receiptHTML;
+    }
+
+    function printReceipt() {
+      const printWindow = window.open('', '', 'height=600,width=400');
+      printWindow.document.write('<html><head><title>Receipt</title></head><body>');
+      printWindow.document.write('<h2>🧾 Your Receipt</h2>');
+      printWindow.document.write(receiptContainer.innerHTML);
+      printWindow.document.write('</body></html>');
+      printWindow.document.close();
+      printWindow.print();
+    }
+
+function showPopupNotification(message) {
+  const popup = document.createElement('div');
+  popup.innerText = message;
+  popup.style.position = 'fixed';
+  popup.style.bottom = '30px';
+  popup.style.right = '30px';
+  popup.style.backgroundColor = 'goldenrod';
+  popup.style.color = '#121212';
+  popup.style.padding = '15px 20px';
+  popup.style.borderRadius = '8px';
+  popup.style.boxShadow = '0 0 10px rgba(218, 165, 32, 0.4)';
+  popup.style.fontWeight = 'bold';
+  popup.style.zIndex = '9999';
+  popup.style.transition = 'opacity 0.3s ease';
+
+  document.body.appendChild(popup);
+
+  setTimeout(() => {
+    popup.style.opacity = '0';
+    setTimeout(() => document.body.removeChild(popup), 500);
+  }, 2500);
+}
+</script>
+</body>
+
+</html>
